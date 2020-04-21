@@ -9,10 +9,13 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
+    
+    //MARK:- Variables
     var varaiable = [Element]()
     var facts : CountryInfo?
     var activityIndicator = UIActivityIndicatorView()
     
+    //MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //adding pull to refresh
@@ -53,7 +56,6 @@ class MainTableViewController: UITableViewController {
     }
     
     // MARK: - Helper Methods
-    
     func configureActivityIndicator() {
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         activityIndicator.center = self.tableView.center
@@ -71,16 +73,14 @@ class MainTableViewController: UITableViewController {
     //MARK:- Service Call
     func getFactsData() {
         self.addActivityIndicator()
-        do {
-             DataFactory.shared.getCountryData(completion:{[weak self] (info, error) in
+        DataFactory.shared.getCountryData(completion:{[weak self] (info, error) in
             self?.removeActivityIndicator()
             self?.refreshControl?.endRefreshing()
             guard let data = info else {return}
             self?.facts = data
             self?.navigationItem.title = self?.facts?.title
             self?.tableView.reloadData()
-            })
-        }
+        })
     }
         
     //MARK:- ADD/Remove Activity Indicator
@@ -94,5 +94,4 @@ class MainTableViewController: UITableViewController {
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
     }
-
 }

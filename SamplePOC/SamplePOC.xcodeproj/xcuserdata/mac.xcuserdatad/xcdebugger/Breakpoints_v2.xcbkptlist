@@ -14,8 +14,8 @@
             filePath = "SamplePOC/Others/Constatnts.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "unknown"
             landmarkType = "0">
             <Locations>
@@ -41,6 +41,36 @@
                   continueAfterRunningActions = "No"
                   symbolName = "SamplePOC.kMinimumRowHeight.unsafeMutableAddressor : Swift.Double"
                   moduleName = "SamplePOC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "198048DD-8375-4D62-99C4-54F8E0FF2A61 - fa1be12468446f8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_2398A869D8E5DB5F0875206D4343723E_func3"
+                  moduleName = "SamplePOCTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "198048DD-8375-4D62-99C4-54F8E0FF2A61 - c70e822591f6d694"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SamplePOCTests.kMinimumRowHeight.unsafeMutableAddressor : Swift.Double"
+                  moduleName = "SamplePOCTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
                   startingColumnNumber = "9223372036854775807"
