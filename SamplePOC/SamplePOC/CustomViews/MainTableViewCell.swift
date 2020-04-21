@@ -29,9 +29,9 @@ class MainTableViewCell: UITableViewCell {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
-        imgView.layer.borderWidth = 1
+        imgView.layer.borderWidth = 0.5
         imgView.layer.masksToBounds = false
-        imgView.layer.borderColor = UIColor.gray.cgColor
+        imgView.layer.borderColor = UIColor.lightGray.cgColor
         return imgView
     }()
     

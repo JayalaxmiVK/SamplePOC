@@ -7,9 +7,7 @@
 //
 
 import Foundation
-// MARK:- Service String Constants
-let kResourceName = "response"
-let kResourceExt = "json"
+// MARK:- String Constant
 let kEmpty = ""
 
 // MARK:- UI Integer Constants
@@ -20,7 +18,7 @@ let kCellIdentifier = "mainTableCellIdentifier"
 let kIntialiserError = "init(coder:) has not been implemented"
 let kEmptyString = ""
 
-// MARK:- Service  Constant
+// MARK:- Service URL Constant
 let kCountryDataServiceURLString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 
 enum ServiceError: Error {
