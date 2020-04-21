@@ -25,6 +25,9 @@
 		0424D301244D965F0026FF8A /* NetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D300244D965F0026FF8A /* NetworkClass.swift */; };
 		0424D302244D965F0026FF8A /* NetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D300244D965F0026FF8A /* NetworkClass.swift */; };
 		0424D303244D965F0026FF8A /* NetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D300244D965F0026FF8A /* NetworkClass.swift */; };
+		0424D30D244EB1640026FF8A /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D30C244EB1640026FF8A /* DataFactory.swift */; };
+		0424D30E244EB1640026FF8A /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D30C244EB1640026FF8A /* DataFactory.swift */; };
+		0424D30F244EB1640026FF8A /* DataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D30C244EB1640026FF8A /* DataFactory.swift */; };
 		04F0AB2D244CC462009D0B7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0AB2C244CC462009D0B7A /* AppDelegate.swift */; };
 		04F0AB2F244CC462009D0B7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0AB2E244CC462009D0B7A /* SceneDelegate.swift */; };
 		04F0AB36244CC464009D0B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F0AB35244CC464009D0B7A /* Assets.xcassets */; };
@@ -57,6 +60,7 @@
 		0424D2F8244D6E570026FF8A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		0424D2FC244D727E0026FF8A /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		0424D300244D965F0026FF8A /* NetworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClass.swift; sourceTree = "<group>"; };
+		0424D30C244EB1640026FF8A /* DataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFactory.swift; sourceTree = "<group>"; };
 		04F0AB29244CC462009D0B7A /* SamplePOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SamplePOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F0AB2C244CC462009D0B7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F0AB2E244CC462009D0B7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,14 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		0424D30B244EB1420026FF8A /* DataFactory */ = {
+			isa = PBXGroup;
+			children = (
+				0424D30C244EB1640026FF8A /* DataFactory.swift */,
+			);
+			path = DataFactory;
+			sourceTree = "<group>";
+		};
 		04F0AB20244CC462009D0B7A = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +150,7 @@
 		04F0AB2B244CC462009D0B7A /* SamplePOC */ = {
 			isa = PBXGroup;
 			children = (
+				0424D30B244EB1420026FF8A /* DataFactory */,
 				0424D2F3244D6B060026FF8A /* CustomViews */,
 				0424D2E6244CCADE0026FF8A /* Others */,
 				04F0AB5F244CC58C009D0B7A /* Delegates */,
@@ -332,6 +345,7 @@
 			files = (
 				0424D2E8244D5CA40026FF8A /* MainTableViewController.swift in Sources */,
 				04F0AB2D244CC462009D0B7A /* AppDelegate.swift in Sources */,
+				0424D30D244EB1640026FF8A /* DataFactory.swift in Sources */,
 				0424D2F0244D63910026FF8A /* Constatnts.swift in Sources */,
 				0424D2F9244D6E570026FF8A /* Extension.swift in Sources */,
 				04F0AB2F244CC462009D0B7A /* SceneDelegate.swift in Sources */,
@@ -351,6 +365,7 @@
 				04F0AB44244CC464009D0B7A /* SamplePOCTests.swift in Sources */,
 				0424D302244D965F0026FF8A /* NetworkClass.swift in Sources */,
 				0424D2F6244D6B670026FF8A /* MainTableViewCell.swift in Sources */,
+				0424D30E244EB1640026FF8A /* DataFactory.swift in Sources */,
 				0424D2F1244D63910026FF8A /* Constatnts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +380,7 @@
 				04F0AB4F244CC464009D0B7A /* SamplePOCUITests.swift in Sources */,
 				0424D303244D965F0026FF8A /* NetworkClass.swift in Sources */,
 				0424D2F7244D6B670026FF8A /* MainTableViewCell.swift in Sources */,
+				0424D30F244EB1640026FF8A /* DataFactory.swift in Sources */,
 				0424D2F2244D63910026FF8A /* Constatnts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

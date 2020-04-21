@@ -7,12 +7,12 @@
 //
 
 import UIKit
-struct CountryInfo {
+struct CountryInfo: Codable {
     var title: String
-    var element: Element
+    var rows: [Element]
 }
-struct Element {
-    var elementName : String?
-    var elementImage : UIImage?
-    var elementDesc : String?
+struct Element: Codable {
+    var title : String?
+    var imageHref : String?
+    var description : String?
 }
