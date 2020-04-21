@@ -78,7 +78,15 @@ class MainTableViewController: UITableViewController {
             self?.refreshControl?.endRefreshing()
             guard let data = info else {return}
             self?.facts = data
+            
+            //removing the row which hastitle properties as nil &  reassigning
+            let compactRowData = data.rows.filter {$0.title != nil}
+            self?.facts?.rows = compactRowData
+            
+            //setting Navigation controller title
             self?.navigationItem.title = self?.facts?.title
+            
+            //reload tableview after receiving data from backend
             self?.tableView.reloadData()
         })
     }
