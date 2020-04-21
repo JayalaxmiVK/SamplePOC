@@ -9,11 +9,11 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-    var countryInfo : CountryInfo? {
+    var element : Element? {
         didSet {
-            elementImage.image = countryInfo?.element.elementImage
-            elementNameLabel.text = countryInfo?.element.elementName
-            elementDescriptionLabel.text = countryInfo?.element.elementDesc
+            elementImage.imageFromServerURL(urlString: element?.imageHref)
+            elementNameLabel.text = element?.title
+            elementDescriptionLabel.text = element?.description
         }
     }
     //MARK:- UI Elements
@@ -29,6 +29,9 @@ class MainTableViewCell: UITableViewCell {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
+        imgView.layer.borderWidth = 1
+        imgView.layer.masksToBounds = false
+        imgView.layer.borderColor = UIColor.gray.cgColor
         return imgView
     }()
     
@@ -51,9 +54,9 @@ class MainTableViewCell: UITableViewCell {
         
         let marginGuide = contentView.layoutMarginsGuide
         
-        elementImage.anchor(top: marginGuide.topAnchor, left: marginGuide.leftAnchor, bottom: marginGuide.bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight:5, width: 50, height: 0, enableInsets: false)
-        elementNameLabel.anchor(top: marginGuide.topAnchor, left: elementImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight:10, width: frame.size.width , height: 0, enableInsets: false)
-        elementDescriptionLabel.anchor(top: elementNameLabel.bottomAnchor, left: elementImage.rightAnchor, bottom: marginGuide.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight:10, width: frame.size.width, height: 0, enableInsets: false)
+        elementImage.anchor(top: nil, left: marginGuide.leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight:5, width: 40, height: 40,centerXval: nil,centerYval: marginGuide.centerYAnchor, enableInsets: false)
+        elementNameLabel.anchor(top: marginGuide.topAnchor, left: elementImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight:10, width: frame.size.width , height: 0, centerXval: nil, centerYval: nil, enableInsets: false)
+        elementDescriptionLabel.anchor(top: elementNameLabel.bottomAnchor, left: elementImage.rightAnchor, bottom: marginGuide.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight:10, width: frame.size.width, height: 0, centerXval: nil, centerYval: nil, enableInsets: false)
         
     }
     

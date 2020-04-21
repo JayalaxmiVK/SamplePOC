@@ -9,17 +9,30 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-    var products = [CountryInfo]()
+    var varaiable = [Element]()
+    var facts : CountryInfo?
+    var activityIndicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "FIRST"
-        createProductArray()
+        //adding pull to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
+        self.refreshControl = refreshControl
+        
+        //configure activityIndicator
+        configureActivityIndicator()
+        
+        //Get data from network class.
+        getFactsData()
         
         //Registering the cell
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: kCellIdentifier)
+        
         //providing dynamic row size for the tableView cell depending on the cell content.
         tableView.estimatedRowHeight = CGFloat(100)
         tableView.rowHeight = UITableView.automaticDimension
+        
         //Hiding empty cells at bottom of the tableview
         tableView.tableFooterView = UIView()
     }
@@ -30,22 +43,56 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return facts?.rows.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! MainTableViewCell
-        let currentElement = products[indexPath.row]
-        cell.countryInfo = currentElement
+        cell.element = facts?.rows[indexPath.row]
         return cell
     }
     
     // MARK: - Helper Methods
-    func createProductArray() {
-        products.append(CountryInfo(title: "Canada", element: Element(elementName: "Animal", elementImage: UIImage(), elementDesc: "Nice One")))
-        products.append(CountryInfo(title: "Canada", element: Element(elementName: "Animal", elementImage: UIImage(), elementDesc: "Nice One")))
-        products.append(CountryInfo(title: "Canada", element: Element(elementName: "Animal", elementImage: UIImage(), elementDesc: "Nice One my name is Jayalaxmi, an ios Developer with four years of expireince in ios development having completed engineering in information science and technology in 2009, at pojjya doddappa appa collage of engineering, gulbarga")))
-        products.append(CountryInfo(title: "Canada", element: Element(elementName: "Animal", elementImage: UIImage(), elementDesc: "A moose is a common sight in Canada. Tall and majestic, they represent many of the values which Canadians imagine that they possess. They grow up to 2.7 metres long and can weigh over 700 kg. They swim at 10 km/h. Moose antlers weigh roughly 20 kg. The plural of moose is actually 'meese', despite what most dictionaries, encyclopedias, and experts will tell you.")))
-        
+    
+    func configureActivityIndicator() {
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        activityIndicator.center = self.tableView.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.large
     }
+    @objc func refreshData(){
+        //Clear data and reload tableview
+        self.facts = CountryInfo(title: kEmptyString, rows: [Element]())
+        self.tableView.reloadData()
+        //Hit the fresh service call
+        self.getFactsData()
+    }
+    
+    //MARK:- Service Call
+    func getFactsData() {
+        self.addActivityIndicator()
+        do {
+             DataFactory.shared.getCountryData(completion:{[weak self] (info, error) in
+            self?.removeActivityIndicator()
+            self?.refreshControl?.endRefreshing()
+            guard let data = info else {return}
+            self?.facts = data
+            self?.navigationItem.title = self?.facts?.title
+            self?.tableView.reloadData()
+            })
+        }
+    }
+        
+    //MARK:- ADD/Remove Activity Indicator
+    func addActivityIndicator(){
+        self.tableView.addSubview(activityIndicator)
+        activityIndicator.bringSubviewToFront(self.tableView)
+        activityIndicator.startAnimating()
+    }
+    
+    func removeActivityIndicator(){
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+    }
+
 }
