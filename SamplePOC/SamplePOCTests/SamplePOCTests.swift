@@ -33,21 +33,21 @@ class SamplePOCTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    func testCountryFactDataService(){
+    func testCountryFactDataService() {
         //Set the expection for data download
         let expectation = self.expectation(description: "Download data from Service URL Given")
         
         // make a call to api using mock object
-        do{
-            try networkManagerMockObject?.getData(UrlString: kCountryDataServiceURLString, completion: { (data, err) in
+        do {
+            try networkManagerMockObject?.getData(urlString: kCountryDataServiceURLString, completion: { (data, err) in
                 
                 //Making sure data is downloaded
-                XCTAssertNotNil(data, "No data was downloaded.")
+                XCTAssertNotNil(data, "No data was downloaded." + (err?.localizedDescription ?? kEmptyString))
                 
                 // Fulfill the expectation to indicate that the background task has finished successfully.
                 expectation.fulfill()
             })
-        } catch{
+        } catch {
             //Testcase failure
             XCTFail(error.localizedDescription)
         }
@@ -59,7 +59,7 @@ class SamplePOCTests: XCTestCase {
         }
     }
     
-    func testTableviewCellRegistration(){
+    func testTableviewCellRegistration() {
         //Set the expection
         let expectation = self.expectation(description: "Tableviewcell is registered")
         
@@ -77,13 +77,13 @@ class SamplePOCTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func testJsonDataParsing(){
+    func testJsonDataParsing() {
         //Set the expection
         let expectation = self.expectation(description: "JSON Parsed/Decoded Successfully")
         
         // make a call to api using mock object
         dataFactoryMockObject?.getCountryData(completion: { (info, error) in
-            XCTAssertNotNil(info, "Not able to parse JSON data and map to Model object")
+            XCTAssertNotNil(info, "Not able to parse JSON data and map to Model object" + (error?.localizedDescription ?? kEmptyString))
             expectation.fulfill()
         })
         

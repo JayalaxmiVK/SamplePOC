@@ -20,18 +20,18 @@
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "198048DD-8375-4D62-99C4-54F8E0FF2A61 - 95c5ae6215c0bf64"
+                  uuid = "198048DD-8375-4D62-99C4-54F8E0FF2A61 - 95c5ae6215a0bf62"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_281E867AD6974C46C5971FF15ACCCA91_func3"
+                  symbolName = "globalinit_33_281E867AD6974C46C5971FF15ACCCA91_func1"
                   moduleName = "SamplePOC"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
@@ -45,41 +45,27 @@
                   urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  uuid = "198048DD-8375-4D62-99C4-54F8E0FF2A61 - fa1be12468446f8f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_2398A869D8E5DB5F0875206D4343723E_func3"
-                  moduleName = "SamplePOCTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  uuid = "198048DD-8375-4D62-99C4-54F8E0FF2A61 - c70e822591f6d694"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SamplePOCTests.kMinimumRowHeight.unsafeMutableAddressor : Swift.Double"
-                  moduleName = "SamplePOCTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/POCGit/SamplePOC/SamplePOC/SamplePOC/Others/Constatnts.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3CC1138-93CC-4C0F-98D3-3FCBE51A87BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SamplePOC/Controllers/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "getFactsData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

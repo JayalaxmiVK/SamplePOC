@@ -12,7 +12,7 @@ struct CountryInfo: Codable {
     var rows: [Element]
 }
 struct Element: Codable {
-    var title : String?
-    var imageHref : String?
-    var description : String?
+    var title: String?
+    var imageHref: String?
+    var description: String?
 }

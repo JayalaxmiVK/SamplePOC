@@ -7,18 +7,18 @@
 //
 
 import Foundation
-// MARK:- String Constant
+// MARK: - String Constant
 let kEmpty = ""
 
-// MARK:- UI Integer Constants
+// MARK: - UI Integer Constants
 let kMinimumRowHeight = 100.0
 
-// MARK:- UI String Constants
+// MARK: - UI String Constants
 let kCellIdentifier = "mainTableCellIdentifier"
 let kIntialiserError = "init(coder:) has not been implemented"
 let kEmptyString = ""
 
-// MARK:- Service URL Constant
+// MARK: - Service URL Constant
 let kCountryDataServiceURLString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 
 enum ServiceError: Error {
@@ -35,5 +35,3 @@ struct ErrorMessage {
     static let invalidResponse = "Data is invalid"
     static let invalidJson = "JSON is invalid"
 }
-
-
