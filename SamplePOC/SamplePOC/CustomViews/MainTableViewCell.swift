@@ -54,8 +54,8 @@ class MainTableViewCell: UITableViewCell {
         let marginGuide = contentView.layoutMarginsGuide
         
         elementImage.anchor(top: nil, left: marginGuide.leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight: 5, width: 40, height: 40, centerXval: nil, centerYval: marginGuide.centerYAnchor, enableInsets: false)
-        elementNameLabel.anchor(top: marginGuide.topAnchor, left: elementImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: frame.size.width, height: 0, centerXval: nil, centerYval: nil, enableInsets: false)
-        elementDescriptionLabel.anchor(top: elementNameLabel.bottomAnchor, left: elementImage.rightAnchor, bottom: marginGuide.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: frame.size.width, height: 0, centerXval: nil, centerYval: nil, enableInsets: false)
+        elementNameLabel.anchor(top: marginGuide.topAnchor, left: elementImage.rightAnchor, bottom: nil, right: marginGuide.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0, centerXval: nil, centerYval: nil, enableInsets: false)
+        elementDescriptionLabel.anchor(top: elementNameLabel.bottomAnchor, left: elementImage.rightAnchor, bottom: marginGuide.bottomAnchor, right: marginGuide.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0, centerXval: nil, centerYval: nil, enableInsets: false)
         
     }
     
