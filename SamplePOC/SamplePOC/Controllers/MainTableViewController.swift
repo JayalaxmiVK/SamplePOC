@@ -10,17 +10,17 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    //MARK:- Variables
+    // MARK: - Variables
     var varaiable = [Element]()
-    var facts : CountryInfo?
+    var facts: CountryInfo?
     var activityIndicator = UIActivityIndicatorView()
     
-    //MARK:- View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //adding pull to refresh
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         self.refreshControl = refreshControl
         
         //configure activityIndicator
@@ -50,9 +50,9 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! MainTableViewCell
-        cell.element = facts?.rows[indexPath.row]
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as? MainTableViewCell
+        cell?.element = facts?.rows[indexPath.row]
+        return cell ?? UITableViewCell()
     }
     
     // MARK: - Helper Methods
@@ -62,7 +62,7 @@ class MainTableViewController: UITableViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = UIActivityIndicatorView.Style.large
     }
-    @objc func refreshData(){
+    @objc func refreshData() {
         //Clear data and reload tableview
         self.facts = CountryInfo(title: kEmptyString, rows: [Element]())
         self.tableView.reloadData()
@@ -70,13 +70,16 @@ class MainTableViewController: UITableViewController {
         self.getFactsData()
     }
     
-    //MARK:- Service Call
+    // MARK: - Service Call
     func getFactsData() {
         self.addActivityIndicator()
-        DataFactory.shared.getCountryData(completion:{[weak self] (info, error) in
+        DataFactory.shared.getCountryData(completion: {[weak self] (info, error) in
             self?.removeActivityIndicator()
             self?.refreshControl?.endRefreshing()
-            guard let data = info else {return}
+            guard let data = info else {
+                print(error?.localizedDescription as Any)
+                return
+            }
             self?.facts = data
             
             //removing the row which hastitle properties as nil &  reassigning
@@ -91,14 +94,14 @@ class MainTableViewController: UITableViewController {
         })
     }
         
-    //MARK:- ADD/Remove Activity Indicator
-    func addActivityIndicator(){
+    // MARK: - ADD/Remove Activity Indicator
+    func addActivityIndicator() {
         self.tableView.addSubview(activityIndicator)
         activityIndicator.bringSubviewToFront(self.tableView)
         activityIndicator.startAnimating()
     }
     
-    func removeActivityIndicator(){
+    func removeActivityIndicator() {
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
     }

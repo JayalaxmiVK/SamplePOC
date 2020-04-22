@@ -10,23 +10,23 @@ import UIKit
 
 class DataFactory: NSObject {
     static let shared = DataFactory()
-    func getCountryData(completion: @escaping (CountryInfo?, Error?) -> Void){
-        var countryData : CountryInfo?
-        do{
-            try NetworkManager.sharedInstance.getData(UrlString: kCountryDataServiceURLString) { (data, error) in
+    func getCountryData(completion: @escaping (CountryInfo?, Error?) -> Void) {
+        var countryData: CountryInfo?
+        do {
+            try NetworkManager.sharedInstance.getData(urlString: kCountryDataServiceURLString) { (data, error) in
                 do {
                     guard let responseData = data else {
-                        print(ServiceError.connectionError(message: ErrorMessage.invalidResponse))
+                        print(ServiceError.connectionError(message: ErrorMessage.invalidResponse + (error?.localizedDescription ?? kEmptyString)))
                         return
                     }
                     let decoder = JSONDecoder()
                     guard let str = String(data: responseData, encoding: String.Encoding.isoLatin1) else {return}
-                    guard let properData = str.data(using: .utf8,allowLossyConversion: true) else {return}
+                    guard let properData = str.data(using: .utf8, allowLossyConversion: true) else {return}
                     countryData = try decoder.decode(CountryInfo.self, from: properData)
                 } catch let err {
-                    completion(nil,ServiceError.jsonParsingError(message: ErrorMessage.invalidJson + err.localizedDescription))
+                    completion(nil, ServiceError.jsonParsingError(message: ErrorMessage.invalidJson + err.localizedDescription))
                 }
-                completion(countryData,nil)
+                completion(countryData, nil)
             }
         } catch {
             print(ServiceError.connectionError(message: ErrorMessage.connectionError + " " + error.localizedDescription))
@@ -38,19 +38,17 @@ class DataFactory: NSObject {
 extension UIImageView {
     public func imageFromServerURL(urlString: String?) {
         self.image = nil
-        do{
-            try  NetworkManager.sharedInstance.getData(UrlString: urlString ) { (imageData, error) in
+        do {
+            try  NetworkManager.sharedInstance.getData(urlString: urlString ) { (imageData, error) in
                 guard let responseData = imageData else {
-                    print(ServiceError.connectionError(message: ErrorMessage.invalidResponse))
+                    print(ServiceError.connectionError(message: ErrorMessage.invalidResponse + (error?.localizedDescription ?? kEmptyString)))
                     return
                 }
                 let image = UIImage(data: responseData)
                 self.image = image
             }
-        }catch{
+        } catch {
             print(ServiceError.connectionError(message: ErrorMessage.connectionError + " " + error.localizedDescription))
         }
     }
 }
-
-
